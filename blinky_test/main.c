@@ -3,10 +3,6 @@
 #include "nrf_delay.h"
 #include "nrf_gpio.h"
 
-/**
- * @brief Function for application main entry.
- */
-
 #define led 13
 
 int main(void)
@@ -15,13 +11,10 @@ int main(void)
 
   while(1)
   {
-    nrf_gpio_pin_set(led);
+    nrf_gpio_pin_set(led);//送出邏輯訊號1(OFF)
     nrf_delay_ms(500);
-    nrf_gpio_pin_clear(led);
+    nrf_gpio_pin_clear(led);//送出邏輯訊號0(ON)
     nrf_delay_ms(500);
   }
 }
 
-/**
- *@}
- **/
