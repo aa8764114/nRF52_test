@@ -5097,7 +5097,7 @@ LOAD linker stubs
  .comment       0x000000000000003f       0x40 /Applications/SEGGER Embedded Studio for ARM 5.62/lib/libc_v7em_fpv4_sp_d16_hard_t_le_eabi.a(libc2.o)
  .comment       0x000000000000003f       0x40 /Applications/SEGGER Embedded Studio for ARM 5.62/lib/libc_v7em_fpv4_sp_d16_hard_t_le_eabi.a(libc.o)
 
-.debug_line     0x0000000000000000     0x7baf
+.debug_line     0x0000000000000000     0x7bb1
  .debug_line    0x0000000000000000      0x214 Output/Release/Obj/uart_pca10056/thumb_crt0.o
  .debug_line    0x0000000000000214      0xb0d Output/Release/Obj/uart_pca10056/boards.o
  .debug_line    0x0000000000000d21      0x3b9 Output/Release/Obj/uart_pca10056/app_error.o
@@ -5110,10 +5110,10 @@ LOAD linker stubs
  .debug_line    0x000000000000372a      0x6f2 Output/Release/Obj/uart_pca10056/nrfx_prs.o
  .debug_line    0x0000000000003e1c     0x17bf Output/Release/Obj/uart_pca10056/nrfx_uart.o
  .debug_line    0x00000000000055db     0x1748 Output/Release/Obj/uart_pca10056/nrfx_uarte.o
- .debug_line    0x0000000000006d23      0x6d3 Output/Release/Obj/uart_pca10056/main.o
- .debug_line    0x00000000000073f6       0x98 Output/Release/Obj/uart_pca10056/ses_startup_nrf52840.o
- .debug_line    0x000000000000748e       0xb7 Output/Release/Obj/uart_pca10056/ses_startup_nrf_common.o
- .debug_line    0x0000000000007545      0x66a Output/Release/Obj/uart_pca10056/system_nrf52840.o
+ .debug_line    0x0000000000006d23      0x6d5 Output/Release/Obj/uart_pca10056/main.o
+ .debug_line    0x00000000000073f8       0x98 Output/Release/Obj/uart_pca10056/ses_startup_nrf52840.o
+ .debug_line    0x0000000000007490       0xb7 Output/Release/Obj/uart_pca10056/ses_startup_nrf_common.o
+ .debug_line    0x0000000000007547      0x66a Output/Release/Obj/uart_pca10056/system_nrf52840.o
 
 .debug_info     0x0000000000000000     0xd2bb
  .debug_info    0x0000000000000000       0x22 Output/Release/Obj/uart_pca10056/thumb_crt0.o

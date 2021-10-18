@@ -1,5 +1,5 @@
 Output/Release/Obj/blinky_pca10056/main.o: \
- /Users/motosawa/Documents/nRF5_SDK_17.1.0_ddde560/examples/my_project/button_input/main.c \
+ /Users/motosawa/Documents/nRF5_SDK_17.1.0_ddde560/examples/my_project/02.\ button_input/main.c \
  /Applications/SEGGER\ Embedded\ Studio\ for\ ARM\ 5.62/include/stdbool.h \
  /Applications/SEGGER\ Embedded\ Studio\ for\ ARM\ 5.62/include/stdint.h \
  ../../../../../../components/libraries/delay/nrf_delay.h \
