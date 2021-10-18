@@ -124,6 +124,7 @@ _build/nrf52840_xxaa/main.c.o: ../../../main.c \
  ../../../../../../components/libraries/pwr_mgmt/nrf_pwr_mgmt.h \
  ../../../../../../components/ble/ble_services/ble_dfu/ble_dfu.h \
  ../../../../../../modules/nrfx/hal/nrf_power.h \
+ ../../../../../../components/libraries/bootloader/nrf_bootloader_info.h \
  ../../../../../../modules/nrfx/hal/nrf_uart.h \
  ../../../../../../modules/nrfx/hal/nrf_uarte.h \
  ../../../../../../components/libraries/log/nrf_log.h \
@@ -263,6 +264,7 @@ _build/nrf52840_xxaa/main.c.o: ../../../main.c \
 ../../../../../../components/libraries/pwr_mgmt/nrf_pwr_mgmt.h:
 ../../../../../../components/ble/ble_services/ble_dfu/ble_dfu.h:
 ../../../../../../modules/nrfx/hal/nrf_power.h:
+../../../../../../components/libraries/bootloader/nrf_bootloader_info.h:
 ../../../../../../modules/nrfx/hal/nrf_uart.h:
 ../../../../../../modules/nrfx/hal/nrf_uarte.h:
 ../../../../../../components/libraries/log/nrf_log.h:
