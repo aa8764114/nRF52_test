@@ -122,6 +122,9 @@ _build/nrf52840_xxaa/main.c.o: ../../../main.c \
  ../../../../../../components/boards/pca10056.h \
  ../../../../../../components/libraries/button/app_button.h \
  ../../../../../../components/libraries/pwr_mgmt/nrf_pwr_mgmt.h \
+ ../../../../../../modules/nrfx/hal/nrf_power.h \
+ ../../../../../../components/libraries/bootloader/nrf_bootloader_info.h \
+ ../../../../../../components/ble/ble_services/ble_dfu/ble_dfu.h \
  ../../../../../../modules/nrfx/hal/nrf_uart.h \
  ../../../../../../modules/nrfx/hal/nrf_uarte.h \
  ../../../../../../components/libraries/log/nrf_log.h \
@@ -259,6 +262,9 @@ _build/nrf52840_xxaa/main.c.o: ../../../main.c \
 ../../../../../../components/boards/pca10056.h:
 ../../../../../../components/libraries/button/app_button.h:
 ../../../../../../components/libraries/pwr_mgmt/nrf_pwr_mgmt.h:
+../../../../../../modules/nrfx/hal/nrf_power.h:
+../../../../../../components/libraries/bootloader/nrf_bootloader_info.h:
+../../../../../../components/ble/ble_services/ble_dfu/ble_dfu.h:
 ../../../../../../modules/nrfx/hal/nrf_uart.h:
 ../../../../../../modules/nrfx/hal/nrf_uarte.h:
 ../../../../../../components/libraries/log/nrf_log.h:

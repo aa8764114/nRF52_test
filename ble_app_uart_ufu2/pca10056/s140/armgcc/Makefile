@@ -70,6 +70,10 @@ SRC_FILES += \
   $(SDK_ROOT)/components/softdevice/common/nrf_sdh.c \
   $(SDK_ROOT)/components/softdevice/common/nrf_sdh_ble.c \
   $(SDK_ROOT)/components/softdevice/common/nrf_sdh_soc.c \
+  $(SDK_ROOT)/components/ble/ble_services/ble_dfu/ble_dfu.c \
+  $(SDK_ROOT)/components/ble/ble_services/ble_dfu/ble_dfu_bonded.c \
+  $(SDK_ROOT)/components/ble/ble_services/ble_dfu/ble_dfu_unbonded.c \
+  $(SDK_ROOT)/components/libraries/bootloader/dfu/nrf_dfu_svci.c \
 
 # Include folders common to all targets
 INC_FOLDERS += \
@@ -205,6 +209,10 @@ INC_FOLDERS += \
   $(SDK_ROOT)/components/nfc/ndef/conn_hand_parser/ac_rec_parser \
   $(SDK_ROOT)/components/libraries/stack_guard \
   $(SDK_ROOT)/components/libraries/log/src \
+  $(SDK_ROOT)/components/ble/ble_services/ble_dfu \
+  $(SDK_ROOT)/components/libraries/bootloader/dfu \
+  $(SDK_ROOT)/components/libraries/bootloader \
+  $(SDK_ROOT)/modules/nrfx/hal \
 
 # Libraries common to all targets
 LIB_FILES += \
@@ -232,6 +240,8 @@ CFLAGS += -mfloat-abi=hard -mfpu=fpv4-sp-d16
 # keep every function in a separate section, this allows linker to discard unused ones
 CFLAGS += -ffunction-sections -fdata-sections -fno-strict-aliasing
 CFLAGS += -fno-builtin -fshort-enums
+CFLAGS += -DNRF_DFU_SVCI_ENABLED
+CFLAGS += -DNRF_DFU_TRANSPORT_BLE=1
 
 # C++ flags common to all targets
 CXXFLAGS += $(OPT)
@@ -249,6 +259,8 @@ ASMFLAGS += -DNRF52840_XXAA
 ASMFLAGS += -DNRF_SD_BLE_API_VERSION=7
 ASMFLAGS += -DS140
 ASMFLAGS += -DSOFTDEVICE_PRESENT
+ASMFLAGS += -DNRF_DFU_SVCI_ENABLED
+ASMFLAGS += -DNRF_DFU_TRANSPORT_BLE=1
 
 # Linker flags
 LDFLAGS += $(OPT)
@@ -295,8 +307,8 @@ $(foreach target, $(TARGETS), $(call define_target, $(target)))
 # Flash the program
 flash: default
 	@echo Flashing: $(OUTPUT_DIRECTORY)/nrf52840_xxaa.hex
-	nrfjprog -f nrf52 --program $(OUTPUT_DIRECTORY)/nrf52840_xxaa.hex --sectorerase
-	nrfjprog -f nrf52 --reset
+	#nrfjprog -f nrf52 --program $(OUTPUT_DIRECTORY)/nrf52840_xxaa.hex --sectorerase
+	#nrfjprog -f nrf52 --reset
 
 # Flash softdevice
 flash_softdevice:
