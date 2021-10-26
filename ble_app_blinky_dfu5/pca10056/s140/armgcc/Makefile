@@ -1,4 +1,4 @@
-PROJECT_NAME     := ble_app_blinky_pca10056_s140
+PROJECT_NAME     := my6_ble_app_blinky_pca10056_s140
 TARGETS          := nrf52840_xxaa
 OUTPUT_DIRECTORY := _build
 
@@ -315,6 +315,9 @@ flash_softdevice:
 
 erase:
 	nrfjprog -f nrf52 --eraseall
+
+dfu: default
+	./gen_all.sh
 
 SDK_CONFIG_FILE := ../config/sdk_config.h
 CMSIS_CONFIG_TOOL := $(SDK_ROOT)/external_tools/cmsisconfig/CMSIS_Configuration_Wizard.jar

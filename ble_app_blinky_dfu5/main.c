@@ -42,7 +42,6 @@
  *
  * This file contains the source code for a sample server application using the LED Button service.
  */
-
 #include <stdint.h>
 #include <string.h>
 #include "nordic_common.h"
@@ -81,10 +80,10 @@ BLE_ADVERTISING_DEF(m_advertising);                                             
 
 #define ADVERTISING_LED                 BSP_BOARD_LED_0                         /**< Is on when device is advertising. */
 #define CONNECTED_LED                   BSP_BOARD_LED_1                         /**< Is on when device has connected. */
-#define LEDBUTTON_LED                   BSP_BOARD_LED_2                         /**< LED to be toggled with the help of the LED Button Service. */
+#define LEDBUTTON_LED                   BSP_BOARD_LED_3                         /**< LED to be toggled with the help of the LED Button Service. */
 #define LEDBUTTON_BUTTON                BSP_BUTTON_0                            /**< Button that will trigger the notification event with the LED Button Service */
 
-#define DEVICE_NAME                     "Nordic_Blinky_dfu6"                         /**< Name of device. Will be included in the advertising data. */
+#define DEVICE_NAME                     "Nordic_Blinky_dfu8"                         /**< Name of device. Will be included in the advertising data. */
 
 #define APP_BLE_OBSERVER_PRIO           3                                       /**< Application's BLE observer priority. You shouldn't need to modify this value. */
 #define APP_BLE_CONN_CFG_TAG            1                                       /**< A tag identifying the SoftDevice BLE configuration. */
@@ -448,18 +447,18 @@ static void led_write_handler(uint16_t conn_handle, ble_lbs_t * p_lbs, uint8_t l
     }
 }
 
-static void dfu_buttonless_init(void)
+static void dfu_button_less_init(void)
 {
     uint32_t                  err_code;
-    ble_dfu_buttonless_init_t dfus_init = {0};
+    ble_dfu_buttonless_init_t dfu_init = {0};
 
     // Initialize the async SVCI interface to bootloader before any interrupts are enabled.
     err_code = ble_dfu_buttonless_async_svci_init();
     APP_ERROR_CHECK(err_code);
 
-    dfus_init.evt_handler = ble_dfu_evt_handler;
+    dfu_init.evt_handler = ble_dfu_evt_handler;
 
-    err_code = ble_dfu_buttonless_init(&dfus_init);
+    err_code = ble_dfu_buttonless_init(&dfu_init);
     APP_ERROR_CHECK(err_code);
 
 }
@@ -485,7 +484,7 @@ static void services_init(void)
     err_code = ble_lbs_init(&m_lbs, &init);
     APP_ERROR_CHECK(err_code);
 
-    dfu_buttonless_init();
+//    dfu_button_less_init();
 
 }
 
@@ -750,6 +749,12 @@ static void idle_state_handle(void)
  */
 int main(void)
 {
+    // Initialize the async SVCI interface to bootloader before any interrupts are enabled.
+    ret_code_t err_code;
+
+    err_code = ble_dfu_buttonless_async_svci_init();
+    APP_ERROR_CHECK(err_code);
+
     // Initialize.
     log_init();
     leds_init();
@@ -767,6 +772,8 @@ int main(void)
     NRF_LOG_INFO("Blinky example started.");
     advertising_start();
 
+
+
     // Enter main loop.
     for (;;)
     {
@@ -778,3 +785,21 @@ int main(void)
 /**
  * @}
  */
+
+
+/**
+ * app_shutdown_handler() -> NRF_PWR_MGMT_HANDLER_REGISTER
+ * buttonless_dfu_sdh_state_observer() -> NRF_SDH_STATE_OBSERVER
+ * advertising_config_get() -> ble_dfu_evt_handler()
+ * disconnect() -> ble_dfu_evt_handler()
+ * ble_dfu_evt_handler() -> dfu_button_less_init()
+ * dfu_button_less_init() -> services_init()
+ *
+ * ----------------------------------------------
+ * NRF_PWR_MGMT_HANDLER_REGISTER
+ * NRF_SDH_STATE_OBSERVER
+ * ble_dfu_evt_handler()
+ * dfu_button_less_init()
+ * services_init()
+ *
+ * */
