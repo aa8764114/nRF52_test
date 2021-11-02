@@ -1,4 +1,4 @@
-PROJECT_NAME     := myDFU_ble_app_blinky_pca10056_s140
+PROJECT_NAME     := my1102_ble_app_blinky_pca10056_s140
 TARGETS          := nrf52840_xxaa
 OUTPUT_DIRECTORY := _build
 
@@ -67,15 +67,9 @@ SRC_FILES += \
   $(SDK_ROOT)/components/ble/ble_services/ble_dfu/ble_dfu.c \
   $(SDK_ROOT)/components/ble/ble_services/ble_dfu/ble_dfu_bonded.c \
   $(SDK_ROOT)/components/ble/ble_services/ble_dfu/ble_dfu_unbonded.c \
-  $(SDK_ROOT)/components/libraries/bootloader/nrf_bootloader_info.c \
   $(SDK_ROOT)/components/libraries/bootloader/dfu/nrf_dfu_svci.c \
+  $(SDK_ROOT)/components/libraries/bootloader/nrf_bootloader_info.c \
   $(SDK_ROOT)/components/ble/ble_advertising/ble_advertising.c \
-#  $(SDK_ROOT)/components/components/libraries/bootloader/dfu/nrf_dfu_settings.c \
-#  $(SDK_ROOT)/components/libraries/bootloader/dfu/nrf_dfu_utils.c \
-#  $(SDK_ROOT)/components/libraries/bootloader/dfu/nrf_dfu_settings.c \
-#  $(SDK_ROOT)/components/libraries/crc32/crc32.c \
-#  $(SDK_ROOT)/components/libraries/bootloader/dfu/nrf_dfu_validation.c \
-
 
 # Include folders common to all targets
 INC_FOLDERS += \
@@ -208,13 +202,9 @@ INC_FOLDERS += \
   $(SDK_ROOT)/components/libraries/stack_guard \
   $(SDK_ROOT)/components/libraries/log/src \
   $(SDK_ROOT)/components/ble/ble_services/ble_dfu \
-  $(SDK_ROOT)/components/libraries/bootloader \
   $(SDK_ROOT)/components/libraries/bootloader/dfu \
+  $(SDK_ROOT)/components/libraries/bootloader \
   $(SDK_ROOT)/components/ble/ble_advertising \
-  $(SDK_ROOT)/components/libraries/crc32 \
-
-
-
 
 # Libraries common to all targets
 LIB_FILES += \
@@ -309,8 +299,8 @@ $(foreach target, $(TARGETS), $(call define_target, $(target)))
 # Flash the program
 flash: default
 	@echo Flashing: $(OUTPUT_DIRECTORY)/nrf52840_xxaa.hex
-	#nrfjprog -f nrf52 --program $(OUTPUT_DIRECTORY)/nrf52840_xxaa.hex --sectorerase
-	#nrfjprog -f nrf52 --reset
+#	nrfjprog -f nrf52 --program $(OUTPUT_DIRECTORY)/nrf52840_xxaa.hex --sectorerase
+#	nrfjprog -f nrf52 --reset
 
 # Flash softdevice
 flash_softdevice:
@@ -326,7 +316,6 @@ gen_all: default
 
 gen_zip: default
 	./gen_zip.sh
-
 
 SDK_CONFIG_FILE := ../config/sdk_config.h
 CMSIS_CONFIG_TOOL := $(SDK_ROOT)/external_tools/cmsisconfig/CMSIS_Configuration_Wizard.jar
