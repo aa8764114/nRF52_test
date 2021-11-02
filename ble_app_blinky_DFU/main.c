@@ -75,6 +75,12 @@
 #include "ble_conn_state.h"
 BLE_ADVERTISING_DEF(m_advertising);                                                 /**< Advertising module instance. */
 
+//#include "nrf_dfu_utils.h"
+//#include "nrf_dfu_settings.h"
+//#include "nrf_bootloader_info.h"
+//#include "crc32.h"
+//#include "nrf_log.h"
+//#include "nrf_dfu_validation.h"
 
 #define ADVERTISING_LED                 BSP_BOARD_LED_0                         /**< Is on when device is advertising. */
 #define CONNECTED_LED                   BSP_BOARD_LED_1                         /**< Is on when device has connected. */
@@ -484,6 +490,7 @@ static void services_init(void)
     APP_ERROR_CHECK(err_code);
 
     dfu_buttonless_init();
+
 }
 
 

@@ -70,6 +70,11 @@ SRC_FILES += \
   $(SDK_ROOT)/components/libraries/bootloader/nrf_bootloader_info.c \
   $(SDK_ROOT)/components/libraries/bootloader/dfu/nrf_dfu_svci.c \
   $(SDK_ROOT)/components/ble/ble_advertising/ble_advertising.c \
+#  $(SDK_ROOT)/components/components/libraries/bootloader/dfu/nrf_dfu_settings.c \
+#  $(SDK_ROOT)/components/libraries/bootloader/dfu/nrf_dfu_utils.c \
+#  $(SDK_ROOT)/components/libraries/bootloader/dfu/nrf_dfu_settings.c \
+#  $(SDK_ROOT)/components/libraries/crc32/crc32.c \
+#  $(SDK_ROOT)/components/libraries/bootloader/dfu/nrf_dfu_validation.c \
 
 
 # Include folders common to all targets
@@ -206,6 +211,8 @@ INC_FOLDERS += \
   $(SDK_ROOT)/components/libraries/bootloader \
   $(SDK_ROOT)/components/libraries/bootloader/dfu \
   $(SDK_ROOT)/components/ble/ble_advertising \
+  $(SDK_ROOT)/components/libraries/crc32 \
+
 
 
 
@@ -319,6 +326,13 @@ gen_all: default
 
 gen_zip: default
 	./gen_zip.sh
+
+dfu:
+	nrfjprog --family nrf52 --erasepage 0xFF000
+	nrfjprog --family nrf52 --memrd 0xFF000
+	nrfjprog --family nrf52 --memwr 0xFF000 --val 0xB1
+	nrfjprog --family nrf52 --memrd 0xFF000
+	nrfjprog -r
 
 SDK_CONFIG_FILE := ../config/sdk_config.h
 CMSIS_CONFIG_TOOL := $(SDK_ROOT)/external_tools/cmsisconfig/CMSIS_Configuration_Wizard.jar

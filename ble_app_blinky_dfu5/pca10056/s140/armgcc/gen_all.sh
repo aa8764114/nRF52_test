@@ -8,7 +8,7 @@ cp ./_build/nrf52840_xxaa.hex ./_all/app.hex
 cp /Users/motosawa/Documents/nRF5_SDK_17.1.0_ddde560/examples/dfu/secure_bootloader/pca10056_s140_ble/armgcc/_build/nrf52840_xxaa_s140.hex ./_all/bootloader.hex
 
 #用bootloader在_all資料夾中產生bl-settings
-nrfutil settings generate --family NRF52 --application ./_all/bootloader.hex --application-version-string "1.0.0" --bootloader-version 1 --bl-settings-version 2  ./_all/bl-settings.hex
+nrfutil settings generate --family NRF52 --application ./_all/bootloader.hex --application-version-string "1.0.0" --bootloader-version 1 --bl-settings-version 2 --start-address 0x01 ./_all/bl-settings.hex
 
 #把softdevice複製到_all
 cp /Users/motosawa/Documents/nRF5_SDK_17.1.0_ddde560/components/softdevice/s140/hex/s140_nrf52_7.2.0_softdevice.hex ./_all/softdevice.hex

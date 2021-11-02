@@ -9533,7 +9533,7 @@ LOAD linker stubs
  .comment       0x0000000000000049       0x4a _build/nrf52840_xxaa/nrf_dfu_svci.c.o
  .comment       0x0000000000000049       0x4a _build/nrf52840_xxaa/ble_advertising.c.o
 
-.debug_line     0x0000000000000000    0x2ef5b
+.debug_line     0x0000000000000000    0x2ef5f
  .debug_line    0x0000000000000000       0x89 _build/nrf52840_xxaa/gcc_startup_nrf52840.S.o
  .debug_line    0x0000000000000089      0xb67 _build/nrf52840_xxaa/nrf_log_backend_rtt.c.o
  .debug_line    0x0000000000000bf0      0x916 _build/nrf52840_xxaa/nrf_log_backend_serial.c.o
@@ -9578,12 +9578,12 @@ LOAD linker stubs
  .debug_line    0x000000000002806d      0x8e0 _build/nrf52840_xxaa/nrf_ble_qwr.c.o
  .debug_line    0x000000000002894d      0x91c _build/nrf52840_xxaa/ble_lbs.c.o
  .debug_line    0x0000000000029269     0x10fe _build/nrf52840_xxaa/nrf_sdh.c.o
- .debug_line    0x000000000002a367      0xbd2 _build/nrf52840_xxaa/nrf_sdh_ble.c.o
- .debug_line    0x000000000002af39      0x850 _build/nrf52840_xxaa/nrf_sdh_soc.c.o
- .debug_line    0x000000000002b789      0xf6e _build/nrf52840_xxaa/ble_dfu.c.o
- .debug_line    0x000000000002c6f7      0xd3c _build/nrf52840_xxaa/ble_dfu_unbonded.c.o
- .debug_line    0x000000000002d433      0x813 _build/nrf52840_xxaa/nrf_dfu_svci.c.o
- .debug_line    0x000000000002dc46     0x1315 _build/nrf52840_xxaa/ble_advertising.c.o
+ .debug_line    0x000000000002a367      0xbd6 _build/nrf52840_xxaa/nrf_sdh_ble.c.o
+ .debug_line    0x000000000002af3d      0x850 _build/nrf52840_xxaa/nrf_sdh_soc.c.o
+ .debug_line    0x000000000002b78d      0xf6e _build/nrf52840_xxaa/ble_dfu.c.o
+ .debug_line    0x000000000002c6fb      0xd3c _build/nrf52840_xxaa/ble_dfu_unbonded.c.o
+ .debug_line    0x000000000002d437      0x813 _build/nrf52840_xxaa/nrf_dfu_svci.c.o
+ .debug_line    0x000000000002dc4a     0x1315 _build/nrf52840_xxaa/ble_advertising.c.o
 
 .debug_info     0x0000000000000000    0x473d0
  .debug_info    0x0000000000000000       0x26 _build/nrf52840_xxaa/gcc_startup_nrf52840.S.o
