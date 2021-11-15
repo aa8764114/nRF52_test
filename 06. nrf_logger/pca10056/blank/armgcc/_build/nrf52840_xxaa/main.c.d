@@ -64,6 +64,7 @@ _build/nrf52840_xxaa/main.c.o: ../../../main.c \
  ../../../../../../components/libraries/util/sdk_resources.h \
  ../../../../../../modules/nrfx/drivers/nrfx_errors.h \
  ../../../../../../components/boards/pca10056.h \
+ ../../../../../../components/libraries/delay/nrf_delay.h \
  ../../../../../../components/libraries/log/nrf_log.h \
  ../../../../../../components/libraries/util/sdk_common.h \
  /usr/local/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/string.h \
@@ -151,6 +152,7 @@ _build/nrf52840_xxaa/main.c.o: ../../../main.c \
 ../../../../../../components/libraries/util/sdk_resources.h:
 ../../../../../../modules/nrfx/drivers/nrfx_errors.h:
 ../../../../../../components/boards/pca10056.h:
+../../../../../../components/libraries/delay/nrf_delay.h:
 ../../../../../../components/libraries/log/nrf_log.h:
 ../../../../../../components/libraries/util/sdk_common.h:
 /usr/local/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/string.h:

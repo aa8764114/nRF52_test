@@ -110,7 +110,7 @@ _build/nrf52840_xxaa/main.c.o: ../../../main.c \
  ../../../../../../components/libraries/log/nrf_log_types.h \
  ../../../../../../components/libraries/sortlist/nrf_sortlist.h \
  ../../../../../../components/libraries/button/app_button.h \
- ../../../../../../components/ble/ble_services/ble_lbs/ble_lbs.h \
+ ../../../../../../components/ble/ble_services/motozawa/ble_moto.h \
  ../../../../../../components/ble/nrf_ble_gatt/nrf_ble_gatt.h \
  ../../../../../../components/ble/nrf_ble_qwr/nrf_ble_qwr.h \
  ../../../../../../components/libraries/pwr_mgmt/nrf_pwr_mgmt.h \
@@ -237,7 +237,7 @@ _build/nrf52840_xxaa/main.c.o: ../../../main.c \
 ../../../../../../components/libraries/log/nrf_log_types.h:
 ../../../../../../components/libraries/sortlist/nrf_sortlist.h:
 ../../../../../../components/libraries/button/app_button.h:
-../../../../../../components/ble/ble_services/ble_lbs/ble_lbs.h:
+../../../../../../components/ble/ble_services/motozawa/ble_moto.h:
 ../../../../../../components/ble/nrf_ble_gatt/nrf_ble_gatt.h:
 ../../../../../../components/ble/nrf_ble_qwr/nrf_ble_qwr.h:
 ../../../../../../components/libraries/pwr_mgmt/nrf_pwr_mgmt.h:

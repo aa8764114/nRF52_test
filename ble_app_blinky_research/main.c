@@ -14,7 +14,7 @@
 #include "boards.h"
 #include "app_timer.h"
 #include "app_button.h"
-#include "ble_lbs.h"
+#include "ble_moto.h"
 #include "nrf_ble_gatt.h"
 #include "nrf_ble_qwr.h"
 #include "nrf_pwr_mgmt.h"
@@ -113,42 +113,60 @@ static void advertising_init(void)
     ble_advdata_t advdata;  //藍牙廣播送的資料（這個結構有定好格式）
     ble_advdata_t srdata;   //有裝置掃描後廣播送的資料（格式跟上面一樣）
 
-    ble_uuid_t adv_uuids[] = {{LBS_UUID_SERVICE, m_lbs.uuid_type}}; //GATT的UUID
+    //0xFD81公司服務，之後可以用這個當過濾器，因為藍牙掃描後會看到很多裝置，可以透過這個過濾哪一個是公司的服務
+    //BLE_UUID_TYPE_BLE:只看前16bit(只看前16bit的是保留的UUID)
+    ble_uuid_t adv_uuids[] = {{0xFD81, BLE_UUID_TYPE_BLE}}; //GATT的UUID
 
     // Build and set advertising data. (建立以及設定廣播資料)
-    わかりません
     memset(&advdata, 0, sizeof(advdata));
 
     advdata.name_type          = BLE_ADVDATA_FULL_NAME; //廣播全名
     advdata.include_appearance = true;
-    advdata.flags              = BLE_GAP_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE;   //設定廣播模式（透過GAP）
+    advdata.flags              = BLE_GAP_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE;   //設定廣播模式（透過GAP設定）
 
+    //p_manuf_specific_data:製造商特定數據
+    //公司自訂0x055a公司編號
+    //如果.company_identifier不填會自動填入0x0000:Ericsson
+    uint8_t product_register[3] = {0x05, 0x00, 0x01}; //這是可以自訂要廣播的東西，想放啥就放啥
+    ble_advdata_manuf_data_t m_sp_manuf_advdata = {.company_identifier = 0x055a, .data   ={.size   = 3, .p_data = product_register}};
+    advdata.p_manuf_specific_data = &m_sp_manuf_advdata;
 
     memset(&srdata, 0, sizeof(srdata));
     srdata.uuids_complete.uuid_cnt = sizeof(adv_uuids) / sizeof(adv_uuids[0]);
     srdata.uuids_complete.p_uuids  = adv_uuids;
+//    srdata.p_manuf_specific_data = &m_sp_manuf_advdata;
 
+    //廣播的資料
     err_code = ble_advdata_encode(&advdata, m_adv_data.adv_data.p_data, &m_adv_data.adv_data.len);
     APP_ERROR_CHECK(err_code);
 
+    //掃描後葛波的資料，不同的地方在於用scan_rsp_data
     err_code = ble_advdata_encode(&srdata, m_adv_data.scan_rsp_data.p_data, &m_adv_data.scan_rsp_data.len);
     APP_ERROR_CHECK(err_code);
 
-    ble_gap_adv_params_t adv_params;
 
-    // Set advertising parameters.
+    // Set advertising parameters.（設定廣播參數）
+
+    //filter_policy
+        //BLE_GAP_ADV_FP_ANY：允許來自任何設備的掃描請求和連接請求。
+        //BLE_GAP_ADV_FP_FILTER_SCANREQ：使用白名單過濾掃描請求。
+        //BLE_GAP_ADV_FP_FILTER_CONNREQ：使用白名單過濾連接請求。
+        //BLE_GAP_ADV_FP_FILTER_BOTH：使用白名單過濾掃描和連接請求。
+    ble_gap_adv_params_t adv_params;
     memset(&adv_params, 0, sizeof(adv_params));
 
-    adv_params.primary_phy     = BLE_GAP_PHY_1MBPS;
-    adv_params.duration        = APP_ADV_DURATION;
-    adv_params.properties.type = BLE_GAP_ADV_TYPE_CONNECTABLE_SCANNABLE_UNDIRECTED;
-    adv_params.p_peer_addr     = NULL;
-    adv_params.filter_policy   = BLE_GAP_ADV_FP_ANY;
-    adv_params.interval        = APP_ADV_INTERVAL;
+    adv_params.primary_phy     = BLE_GAP_PHY_AUTO; //設定PHY，1m,2m,coded, auto
+    adv_params.duration        = APP_ADV_DURATION; //設定廣播時間，這裡設無限
+    adv_params.properties.type = BLE_GAP_ADV_TYPE_CONNECTABLE_SCANNABLE_UNDIRECTED;  //設定廣播屬性，可否連，可否掃描，有沒有方向
+    adv_params.p_peer_addr     = NULL; //已經知道的目標地址
+    adv_params.filter_policy   = BLE_GAP_ADV_FP_ANY; //要怎麼過濾廣播
+    adv_params.interval        = APP_ADV_INTERVAL;  //廣播間隔
 
     err_code = sd_ble_gap_adv_set_configure(&m_adv_handle, &m_adv_data, &adv_params);
     APP_ERROR_CHECK(err_code);
 }
+
+
 
 
 static void nrf_qwr_error_handler(uint32_t nrf_error)
@@ -171,7 +189,7 @@ static void led_write_handler(uint16_t conn_handle, ble_lbs_t * p_lbs, uint8_t l
     }
 }
 
-
+//m_lbs記載如果要運行lbs服務需要設定的參數(UUID等)以及函數
 static void services_init(void)
 {
     ret_code_t         err_code;
@@ -240,6 +258,7 @@ static void advertising_start(void)
 
     bsp_board_led_on(ADVERTISING_LED);
 }
+
 
 
 static void ble_evt_handler(ble_evt_t const * p_ble_evt, void * p_context)
@@ -311,6 +330,8 @@ static void ble_evt_handler(ble_evt_t const * p_ble_evt, void * p_context)
             APP_ERROR_CHECK(err_code);
             break;
 
+
+
         default:
             // No implementation needed.
             break;
@@ -336,8 +357,7 @@ static void ble_stack_init(void)
     APP_ERROR_CHECK(err_code);
 
     // Register a handler for BLE events.(為低功耗藍牙事件註冊一個監聽者)
-    //傳入參數：m_ble_observer，監聽優先序，事件監聽函數，不知道
-    わかりません
+    //傳入參數：名字，監聽優先序，事件監聽函數，預留一個參數的空間想放啥就放啥
     NRF_SDH_BLE_OBSERVER(m_ble_observer, APP_BLE_OBSERVER_PRIO, ble_evt_handler, NULL);
 }
 
@@ -369,15 +389,20 @@ static void button_event_handler(uint8_t pin_no, uint8_t button_action)
 
 static void buttons_init(void)
 {
-    ret_code_t err_code;
-
     //The array must be static because a pointer to it will be saved in the button handler module.
+    //如果有多個按鈕在這邊設定
+    //    app_button_cfg_t
+    //            pin_no:按鈕編號
+    //            active_state：初始狀態要是0或1
+    //            pull_cfg
+    //            button_handler：按下後要執行的函數
     static app_button_cfg_t buttons[] =
     {
         {LEDBUTTON_BUTTON, false, BUTTON_PULL, button_event_handler}
     };
 
-    err_code = app_button_init(buttons, ARRAY_SIZE(buttons),
+    NRF_LOG_INFO("ARRAY_SIZE(buttons):%d", ARRAY_SIZE(buttons)); //算有幾個按鈕
+    ret_code_t err_code = app_button_init(buttons, ARRAY_SIZE(buttons),
                                BUTTON_DETECTION_DELAY);
     APP_ERROR_CHECK(err_code);
 }
@@ -398,13 +423,13 @@ int main(void)
     NRF_LOG_DEFAULT_BACKENDS_INIT();    //log_init();
     bsp_board_init(BSP_INIT_LEDS);  //leds_init();
     app_timer_init();   //    timers_init();
-    static app_button_cfg_t buttons[] ={{LEDBUTTON_BUTTON, false, BUTTON_PULL, button_event_handler}};  //buttons_init();
+    buttons_init();
     nrf_pwr_mgmt_init();    //power_management_init();
     ble_stack_init();   //開啟sd中的藍牙協定疊，如果需要修改app記憶體位址提示怎麼改，最後為低功耗藍牙事件註冊一個監聽者
     gap_params_init();  //設定GAP參數，GAP用來控制裝置連線和廣播，使你的裝置被其他裝置可見，並決定了你的裝置是否可以或者怎樣與互動裝置進行通訊。做握手的感覺
     nrf_ble_gatt_init(&m_gatt, NULL); //gatt_init(); 初始化GATT，GATT控制主機跟外設用GAP建立連線後的雙向通訊
     services_init(); //初始化GATT佇列，LED＆按鍵
-    advertising_init(); //
+    advertising_init(); //廣播設定
     conn_params_init();
 
     // Start execution.
