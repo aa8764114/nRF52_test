@@ -231,6 +231,7 @@ static void wait_for_fds_ready(void)
     while (!m_fds_initialized)
     {
         power_manage();
+        NRF_LOG_INFO("wait_for_fds_ready");
     }
 }
 
@@ -247,20 +248,19 @@ int main(void)
 
     timer_init();
     log_init();
-    cli_init();
 
     NRF_LOG_INFO("FDS example started.")
 
     /* Register first to receive an event when initialization is complete. */
-    (void) fds_register(fds_evt_handler);
+    (void) fds_register(fds_evt_handler); //註冊FDS
 
     NRF_LOG_INFO("Initializing fds...");
 
-    rc = fds_init();
+    rc = fds_init();    //初始化FDS
     APP_ERROR_CHECK(rc);
 
     /* Wait for fds to initialize. */
-    wait_for_fds_ready();
+    wait_for_fds_ready();   //等待FDS初始化完成
 
     NRF_LOG_INFO("Available commands:");
     NRF_LOG_INFO("- print all\t\tprint records");
@@ -274,42 +274,37 @@ int main(void)
 
     NRF_LOG_INFO("Reading flash usage statistics...");
 
-    fds_stat_t stat = {0};
 
-    rc = fds_stat(&stat);
-    APP_ERROR_CHECK(rc);
-
-    NRF_LOG_INFO("Found %d valid records.", stat.valid_records);
-    NRF_LOG_INFO("Found %d dirty records (ready to be garbage collected).", stat.dirty_records);
-
-    fds_record_desc_t desc = {0};
+    fds_record_desc_t desc = {0};   //透過他拿到要拿到的內部儲存空間在哪
     fds_find_token_t  tok  = {0};
 
-    rc = fds_record_find(CONFIG_FILE, CONFIG_REC_KEY, &desc, &tok);
+    rc = fds_record_find(CONFIG_FILE, CONFIG_REC_KEY, &desc, &tok); //找到要讀取的內部儲存空間位址
 
-    if (rc == NRF_SUCCESS)
+    if (rc == NRF_SUCCESS)  //如果有找到
     {
         /* A config file is in flash. Let's update it. */
-        fds_flash_record_t config = {0};
+        fds_flash_record_t config = {0};    //從內部儲存空間讀到的資料會放這裡
 
         /* Open the record and read its contents. */
-        rc = fds_record_open(&desc, &config);
+        rc = fds_record_open(&desc, &config);   //打開儲存空間中的內容
         APP_ERROR_CHECK(rc);
 
         /* Copy the configuration from flash into m_dummy_cfg. */
-        memcpy(&m_dummy_cfg, config.p_data, sizeof(configuration_t));
+        //m_dummy_cfg:存要記錄資訊的結構
+        memcpy(&m_dummy_cfg, config.p_data, sizeof(configuration_t));   //把弄到的儲存空間內容複製到RAM中
 
-        NRF_LOG_INFO("Config file found, updating boot count to %d.", m_dummy_cfg.boot_count);
+        NRF_LOG_INFO("Config file found, updating boot count to %d.", m_dummy_cfg.boot_count);  //印出當前的重開次數
 
         /* Update boot count. */
-        m_dummy_cfg.boot_count++;
+        m_dummy_cfg.boot_count++;   //重開次數+1
 
         /* Close the record when done reading. */
-        rc = fds_record_close(&desc);
+        rc = fds_record_close(&desc);   //關檔
         APP_ERROR_CHECK(rc);
 
         /* Write the updated record to flash. */
-        rc = fds_record_update(&desc, &m_dummy_record);
+        //m_dummy_record裡面的欄位用指標接到m_dummy_cfg
+        rc = fds_record_update(&desc, &m_dummy_record); //更新內部儲存空間中的內容
         if ((rc != NRF_SUCCESS) && (rc == FDS_ERR_NO_SPACE_IN_FLASH))
         {
             NRF_LOG_INFO("No space in flash, delete some records to update the config file.");
@@ -319,12 +314,12 @@ int main(void)
             APP_ERROR_CHECK(rc);
         }
     }
-    else
+    else     //如果沒搜尋到
     {
         /* System config not found; write a new one. */
         NRF_LOG_INFO("Writing config file...");
 
-        rc = fds_record_write(&desc, &m_dummy_record);
+        rc = fds_record_write(&desc, &m_dummy_record);  //直接把m_dummy_record的內容寫入內部儲存空間
         if ((rc != NRF_SUCCESS) && (rc == FDS_ERR_NO_SPACE_IN_FLASH))
         {
             NRF_LOG_INFO("No space in flash, delete some records to update the config file.");
@@ -335,7 +330,6 @@ int main(void)
         }
     }
 
-    cli_start();
 
     /* Enter main loop. */
     for (;;)
@@ -344,7 +338,6 @@ int main(void)
         {
             power_manage();
         }
-        cli_process();
         delete_all_process();
     }
 }
