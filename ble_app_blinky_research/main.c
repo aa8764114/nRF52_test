@@ -192,20 +192,6 @@ static void led_write_handler(uint16_t conn_handle, ble_lbs_t * p_lbs, uint8_t l
     }
 }
 
-//多機連線
-//static void led_write_handler(uint16_t conn_handle, ble_lbs_t * p_lbs, uint8_t led_state)
-//{
-//    if (led_state)
-//    {
-//        bsp_board_led_on(LEDBUTTON_LED);
-//        NRF_LOG_INFO("Received LED ON from link 0x%x!", conn_handle);
-//    }
-//    else
-//    {
-//        bsp_board_led_off(LEDBUTTON_LED);
-//        NRF_LOG_INFO("Received LED OFF from link 0x%x!", conn_handle);
-//    }
-//}
 
 //m_lbs記載如果要運行lbs服務需要設定的參數(UUID等)以及函數
 //單機連線
@@ -228,30 +214,6 @@ static void services_init(void)
     APP_ERROR_CHECK(err_code);
 }
 
-//多機連線
-//static void services_init(void)
-//{
-//    ret_code_t         err_code;
-//    ble_lbs_init_t     init;
-//    nrf_ble_qwr_init_t qwr_init = {0};
-//
-//    // Initialize Queued Write Module instances.
-//    qwr_init.error_handler = nrf_qwr_error_handler;
-//
-//    for (uint32_t i = 0; i < LINK_TOTAL; i++)
-//    {
-//        err_code = nrf_ble_qwr_init(&m_qwr[i], &qwr_init);
-//        APP_ERROR_CHECK(err_code);
-//    }
-//
-//    // Initialize LBS.
-//    init.led_write_handler = led_write_handler;
-//
-//    err_code = ble_lbs_init(&m_lbs, &init);
-//    APP_ERROR_CHECK(err_code);
-//
-//    ble_conn_state_init();
-//}
 
 static void on_conn_params_evt(ble_conn_params_evt_t * p_evt)
 {

@@ -44,4 +44,8 @@ Output/Release/Obj/template_pca10056/main.o: \
  ../../../../../../components/libraries/util/sdk_errors.h \
  ../../../../../../components/libraries/util/sdk_resources.h \
  ../../../../../../modules/nrfx/drivers/nrfx_errors.h \
- ../../../../../../components/boards/pca10056.h
+ ../../../../../../components/boards/pca10056.h \
+ ../../../../../../integration/nrfx/legacy/nrf_drv_clock.h \
+ ../../../../../../modules/nrfx/drivers/include/nrfx_clock.h \
+ ../../../../../../modules/nrfx/hal/nrf_clock.h \
+ ../../../../../../modules/nrfx/drivers/include/nrfx_power_clock.h

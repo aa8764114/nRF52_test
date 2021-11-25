@@ -300,6 +300,9 @@ flash_softdevice:
 erase:
 	nrfjprog -f nrf52 --eraseall
 
+all: erase flash_softdevice flash
+
+
 SDK_CONFIG_FILE := ../config/sdk_config.h
 CMSIS_CONFIG_TOOL := $(SDK_ROOT)/external_tools/cmsisconfig/CMSIS_Configuration_Wizard.jar
 sdk_config:

@@ -1,4 +1,4 @@
-set(PROJECT_NAME ble_app_blinky_pca10056_s140)
+set(PROJECT_NAME my6_ble_app_blinky_pca10056_s140)
 
 set(SDK_ROOT ../../../../../..)
 

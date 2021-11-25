@@ -8000,7 +8000,7 @@ RAM              0x0000000020002310 0x000000000003dcf0 xrw
 Linker script and memory map
 
 
-.text           0x0000000000027000     0x7ed8
+.text           0x0000000000027000     0x7ed4
  *(.isr_vector)
  .isr_vector    0x0000000000027000      0x200 _build/nrf52840_xxaa/gcc_startup_nrf52840.S.o
                 0x0000000000027000                __isr_vector
@@ -8802,235 +8802,235 @@ Linker script and memory map
                 0x000000000002e7ec       0x19 _build/nrf52840_xxaa/main.c.o
  *fill*         0x000000000002e805        0x3 
  .rodata.main.str1.4
-                0x000000000002e808       0x2c _build/nrf52840_xxaa/main.c.o
+                0x000000000002e808       0x28 _build/nrf52840_xxaa/main.c.o
  .rodata.SEGGER_RTT_ReadNoLock.str1.4
-                0x000000000002e834       0x17 _build/nrf52840_xxaa/SEGGER_RTT.c.o
- *fill*         0x000000000002e84b        0x1 
+                0x000000000002e830       0x17 _build/nrf52840_xxaa/SEGGER_RTT.c.o
+ *fill*         0x000000000002e847        0x1 
  .rodata.data_length_update.str1.4
-                0x000000000002e84c       0xe2 _build/nrf52840_xxaa/nrf_ble_gatt.c.o
- *fill*         0x000000000002e92e        0x2 
+                0x000000000002e848       0xe2 _build/nrf52840_xxaa/nrf_ble_gatt.c.o
+ *fill*         0x000000000002e92a        0x2 
  .rodata.nrf_ble_gatt_on_ble_evt.str1.4
-                0x000000000002e930       0x63 _build/nrf52840_xxaa/nrf_ble_gatt.c.o
- *fill*         0x000000000002e993        0x1 
+                0x000000000002e92c       0x63 _build/nrf52840_xxaa/nrf_ble_gatt.c.o
+ *fill*         0x000000000002e98f        0x1 
  .rodata.str1.4
-                0x000000000002e994        0xd _build/nrf52840_xxaa/nrf_ble_gatt.c.o
- *fill*         0x000000000002e9a1        0x3 
- .rodata        0x000000000002e9a4       0x10 _build/nrf52840_xxaa/ble_lbs.c.o
+                0x000000000002e990        0xd _build/nrf52840_xxaa/nrf_ble_gatt.c.o
+ *fill*         0x000000000002e99d        0x3 
+ .rodata        0x000000000002e9a0       0x10 _build/nrf52840_xxaa/ble_lbs.c.o
  .rodata.str1.4
-                0x000000000002e9b4        0x8 _build/nrf52840_xxaa/nrf_sdh.c.o
- .rodata        0x000000000002e9bc        0x4 _build/nrf52840_xxaa/nrf_sdh.c.o
+                0x000000000002e9b0        0x8 _build/nrf52840_xxaa/nrf_sdh.c.o
+ .rodata        0x000000000002e9b8        0x4 _build/nrf52840_xxaa/nrf_sdh.c.o
  .rodata.sdh_req_observers
-                0x000000000002e9c0        0xc _build/nrf52840_xxaa/nrf_sdh.c.o
+                0x000000000002e9bc        0xc _build/nrf52840_xxaa/nrf_sdh.c.o
  .rodata.sdh_stack_observers
-                0x000000000002e9cc        0xc _build/nrf52840_xxaa/nrf_sdh.c.o
+                0x000000000002e9c8        0xc _build/nrf52840_xxaa/nrf_sdh.c.o
  .rodata.sdh_state_observers
-                0x000000000002e9d8        0xc _build/nrf52840_xxaa/nrf_sdh.c.o
+                0x000000000002e9d4        0xc _build/nrf52840_xxaa/nrf_sdh.c.o
  .rodata.nrf_sdh_ble_default_cfg_set.str1.4
-                0x000000000002e9e4      0x187 _build/nrf52840_xxaa/nrf_sdh_ble.c.o
- *fill*         0x000000000002eb6b        0x1 
+                0x000000000002e9e0      0x187 _build/nrf52840_xxaa/nrf_sdh_ble.c.o
+ *fill*         0x000000000002eb67        0x1 
  .rodata.nrf_sdh_ble_enable.str1.4
-                0x000000000002eb6c       0xad _build/nrf52840_xxaa/nrf_sdh_ble.c.o
- *fill*         0x000000000002ec19        0x3 
+                0x000000000002eb68       0xad _build/nrf52840_xxaa/nrf_sdh_ble.c.o
+ *fill*         0x000000000002ec15        0x3 
  .rodata.str1.4
-                0x000000000002ec1c        0xc _build/nrf52840_xxaa/nrf_sdh_ble.c.o
+                0x000000000002ec18        0xc _build/nrf52840_xxaa/nrf_sdh_ble.c.o
  .rodata.sdh_ble_observers
-                0x000000000002ec28        0xc _build/nrf52840_xxaa/nrf_sdh_ble.c.o
+                0x000000000002ec24        0xc _build/nrf52840_xxaa/nrf_sdh_ble.c.o
  .rodata.str1.4
-                0x000000000002ec34        0xc _build/nrf52840_xxaa/nrf_sdh_soc.c.o
+                0x000000000002ec30        0xc _build/nrf52840_xxaa/nrf_sdh_soc.c.o
  .rodata.sdh_soc_observers
-                0x000000000002ec40        0xc _build/nrf52840_xxaa/nrf_sdh_soc.c.o
- .rodata        0x000000000002ec4c       0x10 _build/nrf52840_xxaa/ble_dfu.c.o
+                0x000000000002ec3c        0xc _build/nrf52840_xxaa/nrf_sdh_soc.c.o
+ .rodata        0x000000000002ec48       0x10 _build/nrf52840_xxaa/ble_dfu.c.o
  .rodata.ble_dfu_buttonless_on_ctrl_pt_write.str1.4
-                0x000000000002ec5c       0xce _build/nrf52840_xxaa/ble_dfu_unbonded.c.o
- *fill*         0x000000000002ed2a        0x2 
+                0x000000000002ec58       0xce _build/nrf52840_xxaa/ble_dfu_unbonded.c.o
+ *fill*         0x000000000002ed26        0x2 
  .rodata.nrf_dfu_svci_vector_table_set.str1.4
-                0x000000000002ed2c       0x78 _build/nrf52840_xxaa/nrf_dfu_svci.c.o
+                0x000000000002ed28       0x78 _build/nrf52840_xxaa/nrf_dfu_svci.c.o
  .rodata.nrf_dfu_svci_vector_table_unset.str1.4
-                0x000000000002eda4       0x29 _build/nrf52840_xxaa/nrf_dfu_svci.c.o
+                0x000000000002eda0       0x29 _build/nrf52840_xxaa/nrf_dfu_svci.c.o
  .rodata._ctype_
-                0x000000000002edcd      0x101 /usr/local/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-ctype_.o)
-                0x000000000002edcd                _ctype_
- *fill*         0x000000000002eece        0x2 
+                0x000000000002edc9      0x101 /usr/local/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-ctype_.o)
+                0x000000000002edc9                _ctype_
+ *fill*         0x000000000002eeca        0x2 
  .rodata._global_impure_ptr
-                0x000000000002eed0        0x4 /usr/local/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-impure.o)
-                0x000000000002eed0                _global_impure_ptr
+                0x000000000002eecc        0x4 /usr/local/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-impure.o)
+                0x000000000002eecc                _global_impure_ptr
  *(.eh_frame*)
- .eh_frame      0x000000000002eed4        0x0 /usr/local/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
- .eh_frame      0x000000000002eed4        0x4 /usr/local/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtend.o
+ .eh_frame      0x000000000002eed0        0x0 /usr/local/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .eh_frame      0x000000000002eed0        0x4 /usr/local/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtend.o
 
-.glue_7         0x000000000002eed8        0x0
- .glue_7        0x000000000002eed8        0x0 linker stubs
+.glue_7         0x000000000002eed4        0x0
+ .glue_7        0x000000000002eed4        0x0 linker stubs
 
-.glue_7t        0x000000000002eed8        0x0
- .glue_7t       0x000000000002eed8        0x0 linker stubs
+.glue_7t        0x000000000002eed4        0x0
+ .glue_7t       0x000000000002eed4        0x0 linker stubs
 
-.vfp11_veneer   0x000000000002eed8        0x0
- .vfp11_veneer  0x000000000002eed8        0x0 linker stubs
+.vfp11_veneer   0x000000000002eed4        0x0
+ .vfp11_veneer  0x000000000002eed4        0x0 linker stubs
 
-.v4_bx          0x000000000002eed8        0x0
- .v4_bx         0x000000000002eed8        0x0 linker stubs
+.v4_bx          0x000000000002eed4        0x0
+ .v4_bx         0x000000000002eed4        0x0 linker stubs
 
-.iplt           0x000000000002eed8        0x0
- .iplt          0x000000000002eed8        0x0 /usr/local/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+.iplt           0x000000000002eed4        0x0
+ .iplt          0x000000000002eed4        0x0 /usr/local/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
 .mem_section_dummy_rom
 
 .sdh_soc_observers
-                0x000000000002eed8       0x10
-                0x000000000002eed8                PROVIDE (__start_sdh_soc_observers = .)
+                0x000000000002eed4       0x10
+                0x000000000002eed4                PROVIDE (__start_sdh_soc_observers = .)
  *(SORT_BY_NAME(.sdh_soc_observers*))
  .sdh_soc_observers0
-                0x000000000002eed8        0x8 _build/nrf52840_xxaa/nrf_drv_clock.c.o
+                0x000000000002eed4        0x8 _build/nrf52840_xxaa/nrf_drv_clock.c.o
  .sdh_soc_observers1
-                0x000000000002eee0        0x8 _build/nrf52840_xxaa/ble_dfu_unbonded.c.o
-                0x000000000002eee8                PROVIDE (__stop_sdh_soc_observers = .)
+                0x000000000002eedc        0x8 _build/nrf52840_xxaa/ble_dfu_unbonded.c.o
+                0x000000000002eee4                PROVIDE (__stop_sdh_soc_observers = .)
 
-.pwr_mgmt_data  0x000000000002eee8        0x4
-                0x000000000002eee8                PROVIDE (__start_pwr_mgmt_data = .)
+.pwr_mgmt_data  0x000000000002eee4        0x4
+                0x000000000002eee4                PROVIDE (__start_pwr_mgmt_data = .)
  *(SORT_BY_NAME(.pwr_mgmt_data*))
  .pwr_mgmt_data0
-                0x000000000002eee8        0x4 _build/nrf52840_xxaa/main.c.o
-                0x000000000002eeec                PROVIDE (__stop_pwr_mgmt_data = .)
+                0x000000000002eee4        0x4 _build/nrf52840_xxaa/main.c.o
+                0x000000000002eee8                PROVIDE (__stop_pwr_mgmt_data = .)
 
 .sdh_ble_observers
-                0x000000000002eeec       0x40
-                0x000000000002eeec                PROVIDE (__start_sdh_ble_observers = .)
+                0x000000000002eee8       0x40
+                0x000000000002eee8                PROVIDE (__start_sdh_ble_observers = .)
  *(SORT_BY_NAME(.sdh_ble_observers*))
  .sdh_ble_observers0
-                0x000000000002eeec        0x8 _build/nrf52840_xxaa/ble_conn_state.c.o
+                0x000000000002eee8        0x8 _build/nrf52840_xxaa/ble_conn_state.c.o
  .sdh_ble_observers1
-                0x000000000002eef4       0x10 _build/nrf52840_xxaa/main.c.o
+                0x000000000002eef0       0x10 _build/nrf52840_xxaa/main.c.o
  .sdh_ble_observers1
-                0x000000000002ef04        0x8 _build/nrf52840_xxaa/ble_conn_params.c.o
+                0x000000000002ef00        0x8 _build/nrf52840_xxaa/ble_conn_params.c.o
  .sdh_ble_observers2
-                0x000000000002ef0c       0x10 _build/nrf52840_xxaa/main.c.o
+                0x000000000002ef08       0x10 _build/nrf52840_xxaa/main.c.o
  .sdh_ble_observers2
-                0x000000000002ef1c        0x8 _build/nrf52840_xxaa/ble_dfu.c.o
+                0x000000000002ef18        0x8 _build/nrf52840_xxaa/ble_dfu.c.o
  .sdh_ble_observers3
-                0x000000000002ef24        0x8 _build/nrf52840_xxaa/main.c.o
-                0x000000000002ef2c                PROVIDE (__stop_sdh_ble_observers = .)
+                0x000000000002ef20        0x8 _build/nrf52840_xxaa/main.c.o
+                0x000000000002ef28                PROVIDE (__stop_sdh_ble_observers = .)
 
 .sdh_req_observers
-                0x000000000002ef2c        0x0
-                0x000000000002ef2c                PROVIDE (__start_sdh_req_observers = .)
+                0x000000000002ef28        0x0
+                0x000000000002ef28                PROVIDE (__start_sdh_req_observers = .)
  *(SORT_BY_NAME(.sdh_req_observers*))
-                0x000000000002ef2c                PROVIDE (__stop_sdh_req_observers = .)
+                0x000000000002ef28                PROVIDE (__stop_sdh_req_observers = .)
 
 .sdh_state_observers
-                0x000000000002ef2c       0x10
-                0x000000000002ef2c                PROVIDE (__start_sdh_state_observers = .)
+                0x000000000002ef28       0x10
+                0x000000000002ef28                PROVIDE (__start_sdh_state_observers = .)
  *(SORT_BY_NAME(.sdh_state_observers*))
  .sdh_state_observers0
-                0x000000000002ef2c        0x8 _build/nrf52840_xxaa/nrf_drv_clock.c.o
+                0x000000000002ef28        0x8 _build/nrf52840_xxaa/nrf_drv_clock.c.o
  .sdh_state_observers0
-                0x000000000002ef34        0x8 _build/nrf52840_xxaa/main.c.o
-                0x000000000002ef3c                PROVIDE (__stop_sdh_state_observers = .)
+                0x000000000002ef30        0x8 _build/nrf52840_xxaa/main.c.o
+                0x000000000002ef38                PROVIDE (__stop_sdh_state_observers = .)
 
 .sdh_stack_observers
-                0x000000000002ef3c       0x10
-                0x000000000002ef3c                PROVIDE (__start_sdh_stack_observers = .)
+                0x000000000002ef38       0x10
+                0x000000000002ef38                PROVIDE (__start_sdh_stack_observers = .)
  *(SORT_BY_NAME(.sdh_stack_observers*))
  .sdh_stack_observers0
-                0x000000000002ef3c        0x8 _build/nrf52840_xxaa/nrf_sdh_ble.c.o
+                0x000000000002ef38        0x8 _build/nrf52840_xxaa/nrf_sdh_ble.c.o
  .sdh_stack_observers0
-                0x000000000002ef44        0x8 _build/nrf52840_xxaa/nrf_sdh_soc.c.o
-                0x000000000002ef4c                PROVIDE (__stop_sdh_stack_observers = .)
+                0x000000000002ef40        0x8 _build/nrf52840_xxaa/nrf_sdh_soc.c.o
+                0x000000000002ef48                PROVIDE (__stop_sdh_stack_observers = .)
 
-.nrf_queue      0x000000000002ef4c        0x0
+.nrf_queue      0x000000000002ef48        0x0
                 [!provide]                        PROVIDE (__start_nrf_queue = .)
  *(.nrf_queue)
                 [!provide]                        PROVIDE (__stop_nrf_queue = .)
 
-.nrf_balloc     0x000000000002ef4c       0x14
+.nrf_balloc     0x000000000002ef48       0x14
                 [!provide]                        PROVIDE (__start_nrf_balloc = .)
  *(.nrf_balloc)
- .nrf_balloc    0x000000000002ef4c       0x14 _build/nrf52840_xxaa/nrf_log_frontend.c.o
-                0x000000000002ef4c                log_mempool
+ .nrf_balloc    0x000000000002ef48       0x14 _build/nrf52840_xxaa/nrf_log_frontend.c.o
+                0x000000000002ef48                log_mempool
                 [!provide]                        PROVIDE (__stop_nrf_balloc = .)
 
-.cli_command    0x000000000002ef60        0x0
+.cli_command    0x000000000002ef5c        0x0
                 [!provide]                        PROVIDE (__start_cli_command = .)
  *(.cli_command)
                 [!provide]                        PROVIDE (__stop_cli_command = .)
 
-.crypto_data    0x000000000002ef60        0x0
+.crypto_data    0x000000000002ef5c        0x0
                 [!provide]                        PROVIDE (__start_crypto_data = .)
  *(SORT_BY_NAME(.crypto_data*))
                 [!provide]                        PROVIDE (__stop_crypto_data = .)
 
 .log_const_data
-                0x000000000002ef60       0x78
-                0x000000000002ef60                PROVIDE (__start_log_const_data = .)
+                0x000000000002ef5c       0x78
+                0x000000000002ef5c                PROVIDE (__start_log_const_data = .)
  *(SORT_BY_NAME(.log_const_data*))
  .log_const_data_CLOCK
-                0x000000000002ef60        0x8 _build/nrf52840_xxaa/nrfx_clock.c.o
-                0x000000000002ef60                m_nrf_log_CLOCK_logs_data_const
+                0x000000000002ef5c        0x8 _build/nrf52840_xxaa/nrfx_clock.c.o
+                0x000000000002ef5c                m_nrf_log_CLOCK_logs_data_const
  .log_const_data_GPIOTE
-                0x000000000002ef68        0x8 _build/nrf52840_xxaa/nrfx_gpiote.c.o
-                0x000000000002ef68                m_nrf_log_GPIOTE_logs_data_const
+                0x000000000002ef64        0x8 _build/nrf52840_xxaa/nrfx_gpiote.c.o
+                0x000000000002ef64                m_nrf_log_GPIOTE_logs_data_const
  .log_const_data_PRS
-                0x000000000002ef70        0x8 _build/nrf52840_xxaa/nrfx_prs.c.o
-                0x000000000002ef70                m_nrf_log_PRS_logs_data_const
+                0x000000000002ef6c        0x8 _build/nrf52840_xxaa/nrfx_prs.c.o
+                0x000000000002ef6c                m_nrf_log_PRS_logs_data_const
  .log_const_data_UART
-                0x000000000002ef78        0x8 _build/nrf52840_xxaa/nrfx_uart.c.o
-                0x000000000002ef78                m_nrf_log_UART_logs_data_const
+                0x000000000002ef74        0x8 _build/nrf52840_xxaa/nrfx_uart.c.o
+                0x000000000002ef74                m_nrf_log_UART_logs_data_const
  .log_const_data_UARTE
-                0x000000000002ef80        0x8 _build/nrf52840_xxaa/nrfx_uarte.c.o
-                0x000000000002ef80                m_nrf_log_UARTE_logs_data_const
+                0x000000000002ef7c        0x8 _build/nrf52840_xxaa/nrfx_uarte.c.o
+                0x000000000002ef7c                m_nrf_log_UARTE_logs_data_const
  .log_const_data_app
-                0x000000000002ef88        0x8 _build/nrf52840_xxaa/nrf_log_frontend.c.o
-                0x000000000002ef88                m_nrf_log_app_logs_data_const
+                0x000000000002ef84        0x8 _build/nrf52840_xxaa/nrf_log_frontend.c.o
+                0x000000000002ef84                m_nrf_log_app_logs_data_const
  .log_const_data_app_button
-                0x000000000002ef90        0x8 _build/nrf52840_xxaa/app_button.c.o
-                0x000000000002ef90                m_nrf_log_app_button_logs_data_const
+                0x000000000002ef8c        0x8 _build/nrf52840_xxaa/app_button.c.o
+                0x000000000002ef8c                m_nrf_log_app_button_logs_data_const
  .log_const_data_app_timer
-                0x000000000002ef98        0x8 _build/nrf52840_xxaa/app_timer2.c.o
-                0x000000000002ef98                m_nrf_log_app_timer_logs_data_const
+                0x000000000002ef94        0x8 _build/nrf52840_xxaa/app_timer2.c.o
+                0x000000000002ef94                m_nrf_log_app_timer_logs_data_const
  .log_const_data_clock
-                0x000000000002efa0        0x8 _build/nrf52840_xxaa/nrf_drv_clock.c.o
-                0x000000000002efa0                m_nrf_log_clock_logs_data_const
+                0x000000000002ef9c        0x8 _build/nrf52840_xxaa/nrf_drv_clock.c.o
+                0x000000000002ef9c                m_nrf_log_clock_logs_data_const
  .log_const_data_nrf_ble_gatt
-                0x000000000002efa8        0x8 _build/nrf52840_xxaa/nrf_ble_gatt.c.o
-                0x000000000002efa8                m_nrf_log_nrf_ble_gatt_logs_data_const
+                0x000000000002efa4        0x8 _build/nrf52840_xxaa/nrf_ble_gatt.c.o
+                0x000000000002efa4                m_nrf_log_nrf_ble_gatt_logs_data_const
  .log_const_data_nrf_sdh
-                0x000000000002efb0        0x8 _build/nrf52840_xxaa/nrf_sdh.c.o
-                0x000000000002efb0                m_nrf_log_nrf_sdh_logs_data_const
+                0x000000000002efac        0x8 _build/nrf52840_xxaa/nrf_sdh.c.o
+                0x000000000002efac                m_nrf_log_nrf_sdh_logs_data_const
  .log_const_data_nrf_sdh_ble
-                0x000000000002efb8        0x8 _build/nrf52840_xxaa/nrf_sdh_ble.c.o
-                0x000000000002efb8                m_nrf_log_nrf_sdh_ble_logs_data_const
+                0x000000000002efb4        0x8 _build/nrf52840_xxaa/nrf_sdh_ble.c.o
+                0x000000000002efb4                m_nrf_log_nrf_sdh_ble_logs_data_const
  .log_const_data_nrf_sdh_soc
-                0x000000000002efc0        0x8 _build/nrf52840_xxaa/nrf_sdh_soc.c.o
-                0x000000000002efc0                m_nrf_log_nrf_sdh_soc_logs_data_const
+                0x000000000002efbc        0x8 _build/nrf52840_xxaa/nrf_sdh_soc.c.o
+                0x000000000002efbc                m_nrf_log_nrf_sdh_soc_logs_data_const
  .log_const_data_pwr_mgmt
-                0x000000000002efc8        0x8 _build/nrf52840_xxaa/nrf_pwr_mgmt.c.o
-                0x000000000002efc8                m_nrf_log_pwr_mgmt_logs_data_const
+                0x000000000002efc4        0x8 _build/nrf52840_xxaa/nrf_pwr_mgmt.c.o
+                0x000000000002efc4                m_nrf_log_pwr_mgmt_logs_data_const
  .log_const_data_sortlist
-                0x000000000002efd0        0x8 _build/nrf52840_xxaa/nrf_sortlist.c.o
-                0x000000000002efd0                m_nrf_log_sortlist_logs_data_const
-                0x000000000002efd8                PROVIDE (__stop_log_const_data = .)
+                0x000000000002efcc        0x8 _build/nrf52840_xxaa/nrf_sortlist.c.o
+                0x000000000002efcc                m_nrf_log_sortlist_logs_data_const
+                0x000000000002efd4                PROVIDE (__stop_log_const_data = .)
 
-.log_backends   0x000000000002efd8       0x20
+.log_backends   0x000000000002efd4       0x20
                 [!provide]                        PROVIDE (__start_log_backends = .)
  *(SORT_BY_NAME(.log_backends*))
- .log_backends  0x000000000002efd8       0x20 _build/nrf52840_xxaa/nrf_log_default_backends.c.o
+ .log_backends  0x000000000002efd4       0x20 _build/nrf52840_xxaa/nrf_log_default_backends.c.o
                 [!provide]                        PROVIDE (__stop_log_backends = .)
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x000000000002eff8                __exidx_start = .
+                0x000000000002eff4                __exidx_start = .
 
-.ARM.exidx      0x000000000002eff8        0x8
+.ARM.exidx      0x000000000002eff4        0x8
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
- .ARM.exidx     0x000000000002eff8        0x8 /usr/local/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
+ .ARM.exidx     0x000000000002eff4        0x8 /usr/local/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
                                          0x10 (size before relaxing)
-                0x000000000002f000                __exidx_end = .
+                0x000000000002effc                __exidx_end = .
 
-.rel.dyn        0x000000000002f000        0x0
- .rel.iplt      0x000000000002f000        0x0 /usr/local/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
-                0x000000000002f000                . = ALIGN (0x4)
-                0x000000000002f000                __etext = .
+.rel.dyn        0x000000000002effc        0x0
+ .rel.iplt      0x000000000002effc        0x0 /usr/local/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+                0x000000000002effc                . = ALIGN (0x4)
+                0x000000000002effc                __etext = .
 
-.data           0x0000000020002310       0xd8 load address 0x000000000002f000
+.data           0x0000000020002310       0xd8 load address 0x000000000002effc
                 0x0000000020002310                __data_start__ = .
  *(vtable)
  *(.data*)
@@ -9161,7 +9161,7 @@ LOAD /usr/local/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-non
 LOAD /usr/local/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a
 END GROUP
 
-.igot.plt       0x00000000200023e8        0x0 load address 0x000000000002f0d8
+.igot.plt       0x00000000200023e8        0x0 load address 0x000000000002f0d4
  .igot.plt      0x00000000200023e8        0x0 /usr/local/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
                 0x00000000200023e8                . = ALIGN (0x4)
 
@@ -9344,8 +9344,8 @@ END GROUP
                 0x0000000020040000                PROVIDE (__stack = __StackTop)
                 0x0000000000000001                ASSERT ((__StackLimit >= __HeapLimit), region RAM overflowed with stack)
                 0x00000000000000d8                DataInitFlashUsed = (__bss_start__ - __data_start__)
-                0x0000000000008000                CodeFlashUsed = (__etext - ORIGIN (FLASH))
-                0x00000000000080d8                TotalFlashUsed = (CodeFlashUsed + DataInitFlashUsed)
+                0x0000000000007ffc                CodeFlashUsed = (__etext - ORIGIN (FLASH))
+                0x00000000000080d4                TotalFlashUsed = (CodeFlashUsed + DataInitFlashUsed)
                 0x0000000000000001                ASSERT ((TotalFlashUsed <= LENGTH (FLASH)), region FLASH overflowed with .data and user data)
 OUTPUT(_build/nrf52840_xxaa.out elf32-littlearm)
 LOAD linker stubs
@@ -9791,7 +9791,7 @@ LOAD linker stubs
  .debug_aranges
                 0x00000000000011a0       0x80 _build/nrf52840_xxaa/ble_advertising.c.o
 
-.debug_str      0x0000000000000000    0xbbdcc
+.debug_str      0x0000000000000000    0xbbdc8
  .debug_str     0x0000000000000000       0xb6 _build/nrf52840_xxaa/gcc_startup_nrf52840.S.o
  .debug_str     0x00000000000000b6    0x94529 _build/nrf52840_xxaa/nrf_log_backend_rtt.c.o
                                       0x96c4f (size before relaxing)
@@ -9859,37 +9859,37 @@ LOAD linker stubs
                                       0x96fc4 (size before relaxing)
  .debug_str     0x00000000000ab3ab      0x948 _build/nrf52840_xxaa/nrfx_uarte.c.o
                                       0x97457 (size before relaxing)
- .debug_str     0x00000000000abcf3     0xa7c9 _build/nrf52840_xxaa/main.c.o
-                                      0xa3f43 (size before relaxing)
- .debug_str     0x00000000000b64bc      0x5b3 _build/nrf52840_xxaa/SEGGER_RTT.c.o
+ .debug_str     0x00000000000abcf3     0xa7c5 _build/nrf52840_xxaa/main.c.o
+                                      0xa3f3f (size before relaxing)
+ .debug_str     0x00000000000b64b8      0x5b3 _build/nrf52840_xxaa/SEGGER_RTT.c.o
                                       0x8458f (size before relaxing)
- .debug_str     0x00000000000b6a6f      0x56f _build/nrf52840_xxaa/ble_advdata.c.o
+ .debug_str     0x00000000000b6a6b      0x56f _build/nrf52840_xxaa/ble_advdata.c.o
                                       0x91640 (size before relaxing)
- .debug_str     0x00000000000b6fde      0x305 _build/nrf52840_xxaa/ble_conn_params.c.o
+ .debug_str     0x00000000000b6fda      0x305 _build/nrf52840_xxaa/ble_conn_params.c.o
                                       0x94311 (size before relaxing)
- .debug_str     0x00000000000b72e3      0x83f _build/nrf52840_xxaa/ble_conn_state.c.o
+ .debug_str     0x00000000000b72df      0x83f _build/nrf52840_xxaa/ble_conn_state.c.o
                                       0x930e1 (size before relaxing)
- .debug_str     0x00000000000b7b22      0x47c _build/nrf52840_xxaa/ble_srv_common.c.o
+ .debug_str     0x00000000000b7b1e      0x47c _build/nrf52840_xxaa/ble_srv_common.c.o
                                       0x88653 (size before relaxing)
- .debug_str     0x00000000000b7f9e      0x4a9 _build/nrf52840_xxaa/nrf_ble_gatt.c.o
+ .debug_str     0x00000000000b7f9a      0x4a9 _build/nrf52840_xxaa/nrf_ble_gatt.c.o
                                       0x93e54 (size before relaxing)
- .debug_str     0x00000000000b8447      0x209 _build/nrf52840_xxaa/nrf_ble_qwr.c.o
+ .debug_str     0x00000000000b8443      0x209 _build/nrf52840_xxaa/nrf_ble_qwr.c.o
                                       0x920f7 (size before relaxing)
- .debug_str     0x00000000000b8650       0xfb _build/nrf52840_xxaa/ble_lbs.c.o
+ .debug_str     0x00000000000b864c       0xfb _build/nrf52840_xxaa/ble_lbs.c.o
                                       0x926b4 (size before relaxing)
- .debug_str     0x00000000000b874b      0x4d0 _build/nrf52840_xxaa/nrf_sdh.c.o
+ .debug_str     0x00000000000b8747      0x4d0 _build/nrf52840_xxaa/nrf_sdh.c.o
                                       0x8fa42 (size before relaxing)
- .debug_str     0x00000000000b8c1b      0x6ce _build/nrf52840_xxaa/nrf_sdh_ble.c.o
+ .debug_str     0x00000000000b8c17      0x6ce _build/nrf52840_xxaa/nrf_sdh_ble.c.o
                                       0x94aa5 (size before relaxing)
- .debug_str     0x00000000000b92e9      0x15c _build/nrf52840_xxaa/nrf_sdh_soc.c.o
+ .debug_str     0x00000000000b92e5      0x15c _build/nrf52840_xxaa/nrf_sdh_soc.c.o
                                       0x8ea1c (size before relaxing)
- .debug_str     0x00000000000b9445     0x2278 _build/nrf52840_xxaa/ble_dfu.c.o
+ .debug_str     0x00000000000b9441     0x2278 _build/nrf52840_xxaa/ble_dfu.c.o
                                       0x99ce7 (size before relaxing)
- .debug_str     0x00000000000bb6bd      0x332 _build/nrf52840_xxaa/ble_dfu_unbonded.c.o
+ .debug_str     0x00000000000bb6b9      0x332 _build/nrf52840_xxaa/ble_dfu_unbonded.c.o
                                       0x97005 (size before relaxing)
- .debug_str     0x00000000000bb9ef       0xa0 _build/nrf52840_xxaa/nrf_dfu_svci.c.o
+ .debug_str     0x00000000000bb9eb       0xa0 _build/nrf52840_xxaa/nrf_dfu_svci.c.o
                                       0x8db93 (size before relaxing)
- .debug_str     0x00000000000bba8f      0x33d _build/nrf52840_xxaa/ble_advertising.c.o
+ .debug_str     0x00000000000bba8b      0x33d _build/nrf52840_xxaa/ble_advertising.c.o
                                       0x94e7e (size before relaxing)
 
 .debug_loc      0x0000000000000000    0x23d58
