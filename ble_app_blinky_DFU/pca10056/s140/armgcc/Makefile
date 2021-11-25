@@ -327,6 +327,11 @@ gen_all: default
 gen_zip: default
 	./gen_zip.sh
 
+gen_all&zip:default
+	./gen_all.sh
+	./gen_zip.sh
+
+
 
 SDK_CONFIG_FILE := ../config/sdk_config.h
 CMSIS_CONFIG_TOOL := $(SDK_ROOT)/external_tools/cmsisconfig/CMSIS_Configuration_Wizard.jar
